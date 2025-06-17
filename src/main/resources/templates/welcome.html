@@ -1,10 +1,95 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Welcome</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      background: #e9eff1;
+    }
+
+    .login-container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-box h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0 20px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-box button:hover {
+      background: #0056b3;
+    }
+
+    .footer-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .footer-link a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-<h1>Welcome to the App!</h1>
-<a href="/logout">Logout</a>
+  <div class="login-container">
+    <form class="login-box" action="/login" method="post" th:action="@{/login}">
+      <h1>Login</h1>
+      <input type="text" name="username" placeholder="Enter username" required />
+      <input type="password" name="password" placeholder="Enter password" required />
+      <button type="submit">Login</button>
+      <div class="footer-link">
+        <p>Don't have an account? <a th:href="@{/register}">Register</a></p>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
